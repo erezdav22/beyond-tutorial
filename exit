@@ -1,0 +1,40 @@
+[33mcommit a8f477cea731bb3cda03e6fbc309bb3b6a4ede83[m[33m ([m[1;36mHEAD -> [m[1;32mbranch2[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Erez David Laor <erezdav22@gmail.com>
+Date:   Wed Nov 4 11:37:31 2020 +0200
+
+    commit
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex b43ab3a..a0221d6 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -129,4 +129,4 @@[m [mdmypy.json[m
+ .pyre/[m
+ [m
+ # Vagrant[m
+[31m-.vagrant/[m
+\ No newline at end of file[m
+[32m+[m[32m.vagrant/[m
+[1mdiff --git a/Vagrantfile b/Vagrantfile[m
+[1mindex 5c97259..e108788 100644[m
+[1m--- a/Vagrantfile[m
+[1m+++ b/Vagrantfile[m
+[36m@@ -13,7 +13,7 @@[m [mVagrant.configure("2") do |config|[m
+   # Every Vagrant development environment requires a box. You can search for[m
+   # boxes at https://vagrantcloud.com/search.[m
+   config.vm.box = "fedora/32-cloud-base"[m
+[31m-[m
+[32m+[m	[32mconfig.vm.synced_folder ".", "/vagrant", type: "virtualbox"[m
+   # Disable automatic box update checking. If you disable this, then[m
+   # boxes will only be checked for updates when the user runs[m
+   # `vagrant box outdated`. This is not recommended.[m
+[36m@@ -59,6 +59,9 @@[m [mVagrant.configure("2") do |config|[m
+   #[m
+   # View the documentation for the provider you are using for more[m
+   # information on available options.[m
+[32m+[m[32mconfig.vm.provider "virtualbox" do |vb|[m
+[32m+[m[32mvb.memory = "1024"[m
+[32m+[m[32mend[m
+ [m
+   # Enable provisioning with a shell script. Additional provisioners such as[m
+   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the[m
